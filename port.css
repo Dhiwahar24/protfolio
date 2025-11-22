@@ -1,0 +1,600 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.master{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.t1 {
+  display: flex;
+  justify-content: space-between; /* Spread logo and nav links across */
+  align-items: center;
+  padding: 0 5%; /* Add horizontal padding */
+  background-color: #4a148c; /* Violet background */
+  height: 60px;
+  box-shadow: 0 2px 8px rgba(74, 20, 140, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: white;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  user-select: none;
+}
+.t1 > div {
+  display: flex;
+  gap: 2rem; /* Space between links */
+}
+.t3 {
+  text-decoration: none;
+  color: #d2c9f7;
+  font-weight: 600;
+  font-size: 1.25rem; /* slightly larger */
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.t3.active {
+  color: #007bff;
+  font-weight: bold;
+  border-bottom: 2px solid 	RGB(229, 225, 255);
+}
+.t3::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: 	RGB(229, 225, 255);
+  transition: width 0.3s ease;
+}
+.t3:hover,
+.t3:focus {
+  color: #fff;
+}
+.t3:hover::after,
+.t3:focus::after {
+  width: 100%;
+}.t5 {
+  height: 70vh;
+  margin-top: 15%;
+  margin-left: 6%;
+  margin-bottom: 5%;
+  max-width: 520px;
+  color: #000;
+  font-weight: 800;
+  font-size: 2.8rem;  /* Main heading size */
+  line-height: 1.4;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical center alignment */
+  align-items: flex-start;   /* align left */
+  gap: 10px;                 /* consistent spacing between elements */
+  padding-top: 0;
+}
+.m1 {
+  margin: 20px 0 20px 20px;
+  color: rgb(193, 130, 251);
+  font-weight: 900;
+  font-size: 3.6rem;
+  letter-spacing: 1.5px;
+}
+.m2 {
+  margin-bottom: 15px;
+}
+.he{
+  color: #c182fb;
+}
+.t5 p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.6;
+}
+/* Styled button for CV download */
+.ty {
+  display: inline-block;
+  margin-left: 20px;
+  padding: 12px 28px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  background-color: rgb(193, 130, 251);
+  border: 2px solid rgb(193, 130, 251);
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(193, 130, 251, 0.4);
+  transition: all 0.3s ease;
+}
+.ty:hover {
+  background-color: 	RGB(229, 225, 255);
+  border-color: #a071ff;
+  color: white;
+  box-shadow: 0 7px 20px rgba(160, 113, 255, 0.7);
+  transform: scale(1.05);
+}
+.animated-text {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 1.2s ease forwards;
+  animation-delay: 0.5s; /* Adjust for second line if needed */
+}
+.m2 + p .animated-text {
+  animation-delay: 1.7s;
+}
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.im-text {
+  font-weight: 900;
+  color: rgb(193, 130, 251); /* Violet */
+  margin-right: 8px;
+  font-size: 1.6rem;
+}
+.animated-text {
+  display: inline-block;
+  transition: opacity 0.3s;
+  opacity: 1;
+  font-size: 1.6rem;      /* match .im-text */
+  font-weight: 700;       /* match .im-text */
+  color: #a071ff;         /* violet text */
+  /* Remove background and box-like spacing */
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  /* Glow only on the text */
+  text-shadow:
+    0 0 8px #c182fb,
+    0 0 16px #a071ff;
+}
+#animated-text {
+  transition: opacity 0.5s ease;
+}
+/* Lavender bg only for About and Education full width */
+.abo, .edu {
+  width: auto;
+  background-color: lavender;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  color: #333;
+  margin: 0 auto 40px auto;
+}
+/* Headings centered and styled */
+.abo > .about, .edu > h1 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 2.4rem;
+  color: rgb(193, 130, 251);
+  margin-bottom: 30px;
+  border-bottom: 3px solid #c182fb;
+  padding-bottom: 10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Smooth fade-in animation for sections */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}/* Container for About and Education titles - centered similarly */
+.about, .edu > h1 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 2.4rem;
+  color: rgb(193, 130, 251);
+  margin-bottom: 40px;
+  border-bottom: 3px solid #c182fb;
+  padding-bottom: 10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Education container */
+.edu {
+  max-width: 900px; /* Slightly wider to fit three cards */
+  margin: 0 auto 60px;
+}
+/* Row container for education cards in same row */
+.edu-cards-row {
+  display: flex;
+  justify-content: space-between; /* Evenly space cards */
+  gap: 20px; /* Space between cards */
+  flex-wrap: nowrap; /* Prevent wrapping to next line */
+}
+/* Education card styling */
+.edu1 {
+  background-color: #f0e9ff;
+  border-radius: 15px;
+  flex: 0 0 calc(33.333% - 13px); /* Each card takes ~1/3 width minus gap */
+  padding: 25px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(193, 130, 251, 0.4);
+  cursor: pointer;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  color: #3a0ca3;
+  text-align: center;
+}
+.edu1:hover {
+  background-color: 	RGB(229, 225, 255);
+  box-shadow: 0 8px 30px rgba(193, 130, 251, 0.8);
+  color: white;
+  transform: translateY(-5px);
+  border-radius: 25px;
+}
+.hard {
+  width: 100%;
+  background-color: #e8d0ff;    /* Slightly darker than standard lavender */
+  padding: 50px 20px;
+  box-sizing: border-box;
+  color: #333;
+  margin: 0 auto 40px auto;
+  border-radius: 20px;
+}
+.h {
+  width: 450px;
+  height: 555px;
+  object-fit: cover;
+  border-radius: 50% / 30%; /* rounded top and bottom edges only */
+  display: block;
+  /* no need for flex, justify, or row styles on the image */
+}
+.profile-shadow-violet {
+  box-shadow: 0 12px 40px 0 rgba(160, 113, 255, 0.75),
+              0 1.5px 6px 0 rgba(160,113,255,0.25);
+  /* Adjust shadow color/blur for intensity as needed */
+}
+.images {
+  text-align: center;
+  font-weight: 800;
+  font-size: 2.4rem;
+  color: rgb(193, 130, 251);
+  margin-bottom: 40px;
+  border-bottom: 3px solid #c182fb;
+  padding-bottom: 10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.img1{
+    width: 195px;
+    height: 195px;
+    border-radius: 65px;
+    margin-left: 85px;
+    margin-top: 80px;
+    transition: box-shadow 0.3s 
+cubic-bezier(0.53, -0.05, 0.05, 1);
+}
+.img1:hover{
+    transform: scale(1.3);
+    transition: 2s;
+    border-radius: 50px;
+    box-shadow: 0 8px 16px rgb(193, 130, 251)  ;
+}
+.project {
+  background-color: #e9d1ff;
+  border-radius: 20px;
+  /* padding: 10px 20px; */
+  box-sizing: border-box;
+  color: #333;
+  /* margin: 0 auto 40px auto; */
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.pro {
+  text-align: center;
+  font-weight: 800;
+  font-size: 2.4rem;
+  color: rgb(193, 130, 251);
+  margin-bottom: 40px;
+  border-bottom: 3px solid #c182fb;
+  padding-bottom: 10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pp {
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 10px;
+  padding: 18px 32px;
+  color: #333;
+  background: transparent;
+}
+.report {
+  display: inline-block;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(90deg, #c182fb 0%, #734f96 100%); /* Vibrant lavender gradient */
+  border-radius: 28px;
+  padding: 14px 38px;
+  box-shadow: 0 6px 22px rgba(193, 130, 251, 0.25);
+  transition: box-shadow 0.27s, background 0.37s, color 0.3s;
+  margin: 20px 18px; /* space between buttons */
+  letter-spacing: 0.7px;
+}
+.report:hover {
+  background: linear-gradient(90deg, #734f96 0%, #c182fb 100%);
+  color: #333;
+  box-shadow: 0 10px 30px rgba(193, 130, 251, 0.45);
+  transform: scale(1.06);
+}
+/* Main contact section wrapper */
+/* Contact heading - matches About/Skills/Projects */
+.con {
+  text-align: center;
+  font-weight: 800;
+  font-size: 2.4rem;
+  color: rgb(193, 130, 251);
+  margin-bottom: 10px;
+  border-bottom: 3px solid #c182fb;
+  padding-bottom: 10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+}
+/* Contact info area - background, rounded corners */
+.con1 {
+  background-color: #ebd0ff;
+  border-radius: 20px;
+  /* padding: 50px 20px; */
+  box-sizing: border-box;
+  color: #333;
+  /* margin: 0 auto 40px auto; */
+  text-align: center;
+  font-family: 'Segoe UI', 'Roboto', 'Open Sans', system-ui, Arial, Helvetica, sans-serif;
+  font-weight: 400;           /* Lighter, modern */
+  font-size: 1.09rem;         /* Slightly smaller, readable */
+  letter-spacing: 0.5px;      /* Improves readability */
+  line-height: 2.0;           /* Adds vertical breathing space */
+}
+.p1{
+    width: 45px;
+    margin-right: 85px;
+    margin-left: 100px;
+    margin-top: 65px;
+}
+.p2{
+    padding-top: 25px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}.bb {
+  display: inline-block;
+  font-family: 'Segoe UI', 'Roboto', 'Open Sans', system-ui, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(90deg, #c182fb 0%, #734f96 100%); /* Vibrant lavender gradient */
+  border-radius: 34px;
+  padding: 14px 38px;
+  box-shadow: 0 6px 22px rgba(193, 130, 251, 0.22);
+  margin: 18px 0;
+  letter-spacing: 0.7px;
+  transition: box-shadow 0.27s, background 0.37s, color 0.3s, transform 0.2s;
+}
+
+.bb:hover {
+  background: linear-gradient(90deg, #734f96 0%, #c182fb 100%);
+  color: #333;
+  box-shadow: 0 10px 30px rgba(193, 130, 251, 0.45);
+  transform: scale(1.08);
+  border-radius: 38px;
+}
+
+
+@media (max-width: 800px){
+.t1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background-color: #4a148c;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1200;
+  color: white;
+  box-shadow: 0 2px 8px rgba(74, 20, 140, 0.5);
+}
+
+.logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; user-select: none; }
+.spacer { flex: 1 1 auto; }
+
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+  z-index: 2001;
+}
+
+.nav-toggle-bar {
+  width: 28px;
+  height: 3px;
+  margin: 4px 0;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* @media (min-width: 801px) {
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+} */
+
+@media (max-width: 800px) {
+  .nav-toggle { display: flex; position: relative; z-index: 1200; }
+  
+  .spacer { display: none; }
+  
+   .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    top: 60px; right: 0;
+    width: 72vw;
+    max-width: 330px;
+    min-width: 150px;
+    background: #4a148c;
+    box-shadow: 0 2px 20px rgba(74, 20, 140, 0.18);
+    z-index: 1100;
+    border-radius: 0 0 0 24px;
+    padding: 18px 18px 18px 12px;
+    gap: 2rem;
+  }
+  .nav-links.show {
+    display: none;
+    animation: fadeInNav 0.3s;
+  }
+  .t3 {
+    font-size: 1.1rem;
+    padding: 10px 0;
+    width: 100%;
+    text-align: right;
+    border-bottom: 1px solid rgba(160, 113, 255, 0.13);
+  }
+}
+
+@keyframes fadeInNav {
+  from { opacity: 0; transform: translateY(-20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+/* Responsive container adjustments for mobile */
+@media (max-width: 800px) {
+  /* Stack cards vertically and center content */
+  .edu-cards-row {
+    flex-direction: column !important;
+    gap: 18px !important;
+    padding: 0 10px;
+    align-items: center; /* Center horizontally */
+  }
+
+  .edu1 {
+    flex: 1 1 100% !important;
+    max-width: 280px; /* uniform width for all cards */
+    margin: 0 auto !important;
+    text-align: center; /* center text inside cards */
+  }
+
+  /* Optional: uniform padding inside each edu box for consistent height */
+  .edu1 p, .edu1 span {
+    display: block;
+    margin: 6px 0;
+  }
+}
+
+
+  /* Make project image responsive and contained */
+  .project img.imge {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto 12px auto !important;
+    display: block !important;
+    border-radius: 12px !important;
+  }
+
+
+/* For very small devices (phones, portrait mobile) */
+@media (max-width: 480px) {
+  /* Add some padding to container to prevent edge overflow */
+  .abo, .edu, .project {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  /* Reduce font sizes slightly */
+  .t5 {
+    font-size: 2.2rem !important;
+    margin-left: 4% !important;
+  }
+  .t3 {
+    font-size: 1rem !important;
+  }
+
+  /* Further reduce buttons and links padding */
+  .ty, .report {
+    padding: 10px 20px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Make sure project paragraph text wraps well */
+  .pp {
+    padding: 10px !important;
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Prevent horizontal scrolling on mobile */
+body, html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* General image responsiveness */
+img, .imge {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+@media (max-width: 800px) {
+  /* Center contact icons horizontally */
+  .con1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* spacing between icons */
+    padding: 30px 10px; /* add some padding */
+  }
+  .con1 ul {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .p1 {
+    margin: 0 !important; /* reset margin */
+    width: 45px;
+  }
+}
+
+body {
+  padding-top: 64px;
+}
+
+}
