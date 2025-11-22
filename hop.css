@@ -371,10 +371,11 @@ cubic-bezier(0.53, -0.05, 0.05, 1);
   line-height: 2.0;           /* Adds vertical breathing space */
 }
 .p1{
-    width: 45px;
-    margin-right: 85px;
+    width: 50px;
+    margin-right: 95px;
     margin-left: 100px;
     margin-top: 65px;
+    border-radius: 35px;
 }
 .p2{
     padding-top: 25px;
